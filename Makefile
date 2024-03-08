@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC := clang
+CC := cc
 FLAGS := -Wall -Wextra -Werror
 RM := rm -f
 
@@ -60,13 +60,13 @@ $(NAME): $(OBJS)
 		ar -rcs $(NAME) $(OBJS)
 
 .c.o:
-	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(OBJS)
 
 fclean:	clean
-	$(RM) $(NAME) $(OBJS)
+	$(RM) $(NAME)
 
 re: fclean all
 
